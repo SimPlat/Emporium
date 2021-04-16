@@ -10,6 +10,6 @@ public class CategoryDataAccessService implements CategoryDao{
 
     @Override
     public Category getCategory(String name) {
-        return new Category(UUID.randomUUID(), "test", null);
+        return new Category(2, "test", null);
     }
 }

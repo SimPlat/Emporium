@@ -1,14 +1,23 @@
 package ihu.dypa.emporium.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.*;
 
 
-import java.util.UUID;
+import javax.persistence.*;
 
+@Entity
+@Table(name="category", schema="emporium")
+@RequiredArgsConstructor
+@NoArgsConstructor
+public class Category {
+    @Id
+    @Column(name="id")
+    private Integer id;
 
-public @Data class Category {
-    private final UUID id;
-    private final String name;
-    private final @JsonProperty("parent") Category parent;
+    @ManyToOne
+    @JoinColumn(name="id", nullable = true)
+    private @JsonProperty("parent") Category parent;
+
+    private String name;
 }
