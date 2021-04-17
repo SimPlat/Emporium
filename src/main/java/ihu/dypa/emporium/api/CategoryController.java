@@ -1,25 +1,26 @@
 package ihu.dypa.emporium.api;
 
+
+import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import ihu.dypa.emporium.model.Category;
 import ihu.dypa.emporium.service.CategoryService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("api/v1/category")
-@RestController
+@RestController @RequestMapping("/api/categories")
+@RequiredArgsConstructor(onConstructor=@__({@Autowired}))
 public class CategoryController {
     private final CategoryService categoryService;
 
-    @Autowired
-    public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
+    @GetMapping(path="{parentName}")
+    public List<Category> getChildCategories(@PathVariable String parentName){
+        return categoryService.getChildCategories(parentName);
     }
 
-    @PostMapping
-    public Category getCategory(@RequestBody String parent){
-        return categoryService.getCategory(parent);
+    @GetMapping(path="")
+    public List<Category> getParentCategories(){
+        return categoryService.getParentCategories();
     }
 }

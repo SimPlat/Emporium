@@ -1,22 +1,28 @@
 package ihu.dypa.emporium.service;
 
-import ihu.dypa.emporium.dao.CategoryDao;
-import ihu.dypa.emporium.model.Category;
+import java.util.List;
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+
+import ihu.dypa.emporium.model.Category;
+import ihu.dypa.emporium.repository.CategoryRepository;
 
 @Service
 public class CategoryService {
-    private final CategoryDao categoryDao;
+    private final CategoryRepository categoryRepository;
 
     @Autowired
-    public CategoryService(@Qualifier("categoryDao") CategoryDao categoryDao) {
-        this.categoryDao = categoryDao;
+    public CategoryService(@Qualifier("categoryRepo") CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
     }
 
-    public Category getCategory(String parent){
-        return categoryDao.getCategory(parent);
+    public List<Category> getChildCategories(String parentName){
+        return categoryRepository.findAllChildren(parentName);
+    }
+
+    public List<Category> getParentCategories(){
+        return categoryRepository.findAllParents();
     }
 
 }
