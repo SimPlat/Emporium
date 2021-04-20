@@ -1,7 +1,7 @@
 package ihu.dypa.emporium.repository;
 
-import java.util.List;
 import ihu.dypa.emporium.model.Category;
+import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

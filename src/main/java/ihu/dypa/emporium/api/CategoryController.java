@@ -1,13 +1,11 @@
 package ihu.dypa.emporium.api;
 
-
+import ihu.dypa.emporium.model.Category;
+import ihu.dypa.emporium.service.CategoryService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import ihu.dypa.emporium.model.Category;
-import ihu.dypa.emporium.service.CategoryService;
 
 @RestController @RequestMapping("/api/categories")
 @RequiredArgsConstructor(onConstructor=@__({@Autowired}))
