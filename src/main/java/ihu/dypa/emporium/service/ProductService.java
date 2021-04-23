@@ -3,10 +3,9 @@ package ihu.dypa.emporium.service;
 import ihu.dypa.emporium.model.Product;
 import ihu.dypa.emporium.model.Retailer;
 import ihu.dypa.emporium.repository.ProductRepository;
+import ihu.dypa.emporium.repository.RetailerRepository;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import ihu.dypa.emporium.repository.RetailerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
