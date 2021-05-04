@@ -15,13 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
+    private final HttpServletRequest request;
 
     @Autowired
-    public ProductService(@Qualifier("productRepo") ProductRepository productRepository) {
+    public ProductService(@Qualifier("productRepo") ProductRepository productRepository, HttpServletRequest request) {
         this.productRepository = productRepository;
+        this.request = request;
     }
 
-    public List<Product> getProductsOfCategory(String categoryName, HttpServletRequest request){
+    @SuppressWarnings("unchecked")
+    public List<Product> getProductsOfCategory(String categoryName){
         // Get session's active Retailers and transform the Retailer list to Retailer Name String list.
         List<String> activeRetailerNames = ((List<Retailer>) request.getSession().getAttribute("ACTIVE_RETAILERS")).stream().map(Retailer::getName).collect(Collectors.toList());
         return productRepository.findAllProductsByCategoryName(categoryName, activeRetailerNames);

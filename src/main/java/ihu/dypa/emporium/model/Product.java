@@ -3,10 +3,9 @@ package ihu.dypa.emporium.model;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 import javax.persistence.*;
 
-@AllArgsConstructor @NoArgsConstructor(force=true)
+@NoArgsConstructor(force=true)
 @Entity @Table(name="product", schema="emporium_test")
 public class Product {
     @Id @Column(name="id")

@@ -17,7 +17,7 @@ public class CategoryController {
         return categoryService.getChildCategories(parentName);
     }
 
-    @GetMapping(path="")
+    @GetMapping
     public List<Category> getParentCategories(){
         return categoryService.getParentCategories();
     }

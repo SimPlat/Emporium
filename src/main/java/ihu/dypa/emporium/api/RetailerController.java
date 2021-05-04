@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@SuppressWarnings("unchecked")
 @RestController @RequestMapping("/api/retailers")
 @RequiredArgsConstructor(onConstructor=@__({@Autowired}))
 public class RetailerController {
@@ -33,14 +33,14 @@ public class RetailerController {
 
         request.getSession().setAttribute("ACTIVE_RETAILERS", activeRetailers);
 
-        return new ResponseEntity<List<Retailer>>(activeRetailers, HttpStatus.OK);
+        return new ResponseEntity<>(activeRetailers, HttpStatus.OK);
     }
 
-    @GetMapping(produces="application/Json")
+    @GetMapping
     public ResponseEntity<List<Retailer>> getRetailers(HttpServletRequest request){
         List<Retailer> activeRetailers = (List<Retailer>) request.getSession().getAttribute("ACTIVE_RETAILERS");
 
-        return new ResponseEntity<List<Retailer>>(activeRetailers, HttpStatus.OK);
+        return new ResponseEntity<>(activeRetailers, HttpStatus.OK);
     }
 }
 
