@@ -33,7 +33,7 @@ public class RetailerController {
 
         request.getSession().setAttribute("ACTIVE_RETAILERS", activeRetailers);
 
-        return new ResponseEntity<>(activeRetailers, HttpStatus.OK);
+        return new ResponseEntity<>(activeRetailers, HttpStatus.CREATED);
     }
 
     @GetMapping

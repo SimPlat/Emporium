@@ -14,5 +14,5 @@ public class Category {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade={CascadeType.ALL} )
     @JoinColumn(name="parent_id", referencedColumnName="id")
-    private final Category parent;
+    private final @Getter Category parent;
 }
