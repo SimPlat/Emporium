@@ -18,7 +18,7 @@ public class Product {
     private final @Getter @NonNull String brand;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade={CascadeType.ALL} )
-    @JoinColumn(name="category", referencedColumnName="id")
+    @JoinColumn(name="category", referencedColumnName="name")
     private final Category category;
 
     @Column(name="retailer")
