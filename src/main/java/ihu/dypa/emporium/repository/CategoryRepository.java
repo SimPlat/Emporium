@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 
 @Repository("categoryRepo")
 public interface CategoryRepository extends CrudRepository<Category, Integer> {
-    @Query("SELECT child FROM Category child JOIN Category parent ON parent.id=child.parent.id WHERE parent.name=?1")
+    @Query("SELECT child FROM Category child JOIN Category parent ON parent.name=child.parent.name WHERE parent.name=?1")
     List<Category> findAllChildren(String parentName);
 
     @Query("SELECT category FROM Category category WHERE category.parent IS NULL")

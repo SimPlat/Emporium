@@ -4,7 +4,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @AllArgsConstructor @NoArgsConstructor(force=true)
-@Entity @Table(name="category", schema="emporium_test")
+@Entity @Table(name="category", schema="emporium")
 public class Category {
     @Id @Column(name="id")
     private final @Getter @NonNull Integer id;
@@ -13,6 +13,6 @@ public class Category {
     private final @Getter @NonNull String name;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade={CascadeType.ALL} )
-    @JoinColumn(name="parent_id", referencedColumnName="id")
+    @JoinColumn(name="parent_name", referencedColumnName="name")
     private final @Getter Category parent;
 }

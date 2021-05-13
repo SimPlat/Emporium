@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @NoArgsConstructor(force=true)
-@Entity @Table(name="product", schema="emporium_test")
+@Entity @Table(name="product", schema="emporium")
 public class Product {
     @Id @Column(name="id")
     private final @Getter @NonNull Integer id;
