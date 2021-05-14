@@ -13,6 +13,9 @@ public class Category implements Serializable {
     @Column(name="name")
     private final @Getter @NonNull String name;
 
+    @Column(name="display_name")
+    private final @Getter @NonNull String displayName;
+
     @ManyToOne(fetch = FetchType.EAGER, cascade={CascadeType.ALL} )
     @JoinColumn(name="parent_name", referencedColumnName="name")
     private final @Getter Category parent;

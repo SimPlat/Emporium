@@ -14,6 +14,9 @@ public class Product {
     @Column(name="name")
     private final @Getter @NonNull String name;
 
+    @Column(name="display_name")
+    private final @Getter @NonNull String displayName;
+
     @Column(name="brand")
     private final @Getter @NonNull String brand;
 
