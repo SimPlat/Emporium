@@ -27,8 +27,8 @@ CREATE TABLE product (
     category varchar(32) NOT NULL,
     retailer varchar(16) NOT NULL,
     price decimal(4,2) NOT NULL,
-    UNIQUE INDEX alternate_key_name (name),
-    UNIQUE INDEX alternate_key_display_name (display_name),
+    UNIQUE INDEX alternate_key_name (name,retailer),
+    UNIQUE INDEX alternate_key_display_name (display_name,retailer),
     CONSTRAINT product_pk PRIMARY KEY (id)
 );
 
