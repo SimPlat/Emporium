@@ -2,7 +2,7 @@
 -- Last modification date: 2021-05-17 15:22:06.033
 
 -- DB
-CRATE DATABASE emporium;
+CREATE DATABASE emporium;
 USE emporium;
 
 -- tables
