@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("unchecked")
+@CrossOrigin(origins="http://localhost:5000")
 @RestController @RequestMapping("/api/retailers")
 @RequiredArgsConstructor(onConstructor=@__({@Autowired}))
 public class RetailerController {
