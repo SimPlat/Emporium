@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@CrossOrigin
 @RestController @RequestMapping("/api/categories")
 @RequiredArgsConstructor(onConstructor=@__({@Autowired}))
 public class CategoryController {

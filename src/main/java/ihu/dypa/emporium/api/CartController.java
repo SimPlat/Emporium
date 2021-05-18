@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @SuppressWarnings("unchecked")
-@CrossOrigin
 @RestController @RequestMapping("/api/cart")
 @RequiredArgsConstructor(onConstructor=@__({@Autowired}))
 public class CartController {
