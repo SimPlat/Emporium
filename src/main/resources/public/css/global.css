@@ -1,0 +1,35 @@
+body{
+	background-color: #f1f1f1;
+	font-size: 1rem;
+	font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
+}
+
+img{
+	user-drag: none; 
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.fruits{
+    /* background-color:tomato; */
+    background-color: #1d84b0ff !important;
+}
+
+.vegetables{
+    background-color: #bca580ff !important;
+}
+
+.diary{
+    background-color: #6f69adff !important;
+}
+
+.frozen{
+    background-color: skyblue !important;
+}
+
+.generic{
+    background-color:darkcyan;
+}
