@@ -1,17 +1,14 @@
 package ihu.dypa.emporium.repository;
 
 import ihu.dypa.emporium.model.Category;
-
 import java.util.List;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 @Repository("categoryRepo")
 public interface CategoryRepository extends CrudRepository<Category, Integer> {
-    @Query("SELECT child FROM Category child JOIN Category parent ON parent.name=child.parent.name WHERE parent.name=?1")
-    List<Category> findAllChildren(String parentName);
+    List<Category> findCategoryByParent_Name(@Param("parent_name") String parentName);
 
-    @Query("SELECT category FROM Category category WHERE category.parent IS NULL")
-    List<Category> findAllParents();
+    List<Category> findCategoryByParentNull();
 }
