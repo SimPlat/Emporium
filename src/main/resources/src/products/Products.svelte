@@ -41,8 +41,24 @@
 	});
 
     /* Decide what will happen when someone clicks on a div */
-    let onClick = function (name){
-        addItemToCart(name, 1);
+    let onClick = function (item){
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var raw = '{\"'+item.name+'\":1}'
+        console.log(raw);
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        credentials: 'include',
+        redirect: 'follow'
+        };
+
+        fetch("http://localhost:8080/api/cart", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
     }
 
 </script>
