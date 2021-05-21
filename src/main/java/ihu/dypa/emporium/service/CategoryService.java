@@ -18,11 +18,11 @@ public class CategoryService {
     }
 
     public List<Category> getChildCategories(String parentName){
-        return categoryRepository.findAllChildren(parentName);
+        return categoryRepository.findCategoryByParent_Name(parentName);
     }
 
     public List<Category> getParentCategories(){
-        return categoryRepository.findAllParents();
+        return categoryRepository.findCategoryByParentNull();
     }
 
 }

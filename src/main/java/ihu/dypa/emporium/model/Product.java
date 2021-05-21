@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity @Table(name="product", schema="emporium")
 public class Product {
     @Id @Column(name="id")
-    private final @Getter @NonNull Integer id;
+    private final @NonNull Integer id;
 
     @Column(name="name")
     private final @Getter @NonNull String name;
@@ -18,16 +18,15 @@ public class Product {
     private final @Getter @NonNull String displayName;
 
     @Column(name="brand")
-    private final @Getter @NonNull String brand;
+    private final String brand;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade={CascadeType.ALL} )
     @JoinColumn(name="category", referencedColumnName="name")
-    private final Category category;
+    private final @Getter Category category;
 
     @Column(name="retailer")
     private final @Getter @NonNull String retailer;
 
     @Column(name="price")
     private final @Getter @NonNull Double price;
-
 }

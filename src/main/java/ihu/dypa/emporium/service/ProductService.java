@@ -27,7 +27,7 @@ public class ProductService {
     public List<Product> getProductsOfCategory(String categoryName){
         // Get session's active Retailers and transform the Retailer list to Retailer Name String list.
         List<String> activeRetailerNames = ((List<Retailer>) request.getSession().getAttribute("ACTIVE_RETAILERS")).stream().map(Retailer::getName).collect(Collectors.toList());
-        return productRepository.findAllProductsByCategoryName(categoryName, activeRetailerNames);
+        return productRepository.findProductsByCategoryName(categoryName, activeRetailerNames);
     }
 
 }
