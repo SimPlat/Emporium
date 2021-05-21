@@ -2,7 +2,6 @@ package ihu.dypa.emporium.service;
 
 import ihu.dypa.emporium.model.Category;
 import ihu.dypa.emporium.repository.CategoryRepository;
-
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;

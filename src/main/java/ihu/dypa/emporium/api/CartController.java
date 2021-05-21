@@ -1,8 +1,6 @@
 package ihu.dypa.emporium.api;
 
 import java.util.*;
-
-import ihu.dypa.emporium.model.Product;
 import ihu.dypa.emporium.service.CartService;
 import lombok.RequiredArgsConstructor;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.apache.commons.lang3.tuple.Pair;
 
 @SuppressWarnings("unchecked")
 @RestController @RequestMapping("/api/cart")
