@@ -15746,7 +15746,7 @@ var app = (function () {
     const { console: console_1$2 } = globals;
     const file$6 = "src\\Cart\\CartItemForm.svelte";
 
-    // (42:0) {#if params.quantity>0}
+    // (56:0) {#if params.quantity>0}
     function create_if_block(ctx) {
     	let div4;
     	let div0;
@@ -15792,34 +15792,34 @@ var app = (function () {
     			t7 = space();
     			button1 = element("button");
     			button1.textContent = "-";
-    			attr_dev(span, "class", "delete-btn svelte-1454d9h");
-    			add_location(span, file$6, 44, 12, 1240);
-    			attr_dev(div0, "class", "buttons svelte-1454d9h");
-    			add_location(div0, file$6, 43, 8, 1205);
+    			attr_dev(span, "class", "delete-btn svelte-11rjj2n");
+    			add_location(span, file$6, 58, 12, 1589);
+    			attr_dev(div0, "class", "buttons svelte-11rjj2n");
+    			add_location(div0, file$6, 57, 8, 1554);
     			if (img.src !== (img_src_value = "imgs/Categories/" + /*params*/ ctx[0].name + ".svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
-    			add_location(img, file$6, 48, 12, 1375);
-    			attr_dev(div1, "class", "image svelte-1454d9h");
-    			add_location(div1, file$6, 47, 8, 1342);
-    			add_location(p, file$6, 52, 12, 1495);
-    			attr_dev(div2, "class", "description svelte-1454d9h");
-    			add_location(div2, file$6, 51, 8, 1456);
-    			attr_dev(button0, "class", "plus-btn svelte-1454d9h");
+    			add_location(img, file$6, 62, 12, 1699);
+    			attr_dev(div1, "class", "image svelte-11rjj2n");
+    			add_location(div1, file$6, 61, 8, 1666);
+    			add_location(p, file$6, 66, 12, 1819);
+    			attr_dev(div2, "class", "description svelte-11rjj2n");
+    			add_location(div2, file$6, 65, 8, 1780);
+    			attr_dev(button0, "class", "plus-btn svelte-11rjj2n");
     			attr_dev(button0, "type", "button");
     			attr_dev(button0, "name", "button");
-    			add_location(button0, file$6, 56, 12, 1586);
+    			add_location(button0, file$6, 70, 12, 1910);
     			attr_dev(input, "type", "number");
     			attr_dev(input, "name", "name");
-    			attr_dev(input, "class", "svelte-1454d9h");
-    			add_location(input, file$6, 59, 12, 1716);
-    			attr_dev(button1, "class", "minus-btn svelte-1454d9h");
+    			attr_dev(input, "class", "svelte-11rjj2n");
+    			add_location(input, file$6, 73, 12, 2040);
+    			attr_dev(button1, "class", "minus-btn svelte-11rjj2n");
     			attr_dev(button1, "type", "button");
     			attr_dev(button1, "name", "button");
-    			add_location(button1, file$6, 60, 12, 1794);
-    			attr_dev(div3, "class", "quantity svelte-1454d9h");
-    			add_location(div3, file$6, 55, 8, 1550);
-    			attr_dev(div4, "class", "item svelte-1454d9h");
-    			add_location(div4, file$6, 42, 4, 1177);
+    			add_location(button1, file$6, 74, 12, 2143);
+    			attr_dev(div3, "class", "quantity svelte-11rjj2n");
+    			add_location(div3, file$6, 69, 8, 1874);
+    			attr_dev(div4, "class", "item svelte-11rjj2n");
+    			add_location(div4, file$6, 56, 4, 1526);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div4, anchor);
@@ -15843,27 +15843,17 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(
-    						span,
-    						"click",
-    						function () {
-    							if (is_function((/*params*/ ctx[0].quantity = 0, /*decrement*/ ctx[2]()))) (/*params*/ ctx[0].quantity = 0, /*decrement*/ ctx[2]()).apply(this, arguments);
-    						},
-    						false,
-    						false,
-    						false
-    					),
-    					listen_dev(button0, "click", /*increment*/ ctx[1], false, false, false),
-    					listen_dev(input, "input", /*input_input_handler*/ ctx[3]),
-    					listen_dev(button1, "click", /*decrement*/ ctx[2], false, false, false)
+    					listen_dev(span, "click", /*zero*/ ctx[2], false, false, false),
+    					listen_dev(button0, "click", /*increment*/ ctx[3], false, false, false),
+    					listen_dev(input, "input", /*input_input_handler*/ ctx[5]),
+    					listen_dev(input, "keypress", /*onKeyPress*/ ctx[1], false, false, false),
+    					listen_dev(button1, "click", /*decrement*/ ctx[4], false, false, false)
     				];
 
     				mounted = true;
     			}
     		},
-    		p: function update(new_ctx, dirty) {
-    			ctx = new_ctx;
-
+    		p: function update(ctx, dirty) {
     			if (dirty & /*params*/ 1 && img.src !== (img_src_value = "imgs/Categories/" + /*params*/ ctx[0].name + ".svg")) {
     				attr_dev(img, "src", img_src_value);
     			}
@@ -15885,7 +15875,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(42:0) {#if params.quantity>0}",
+    		source: "(56:0) {#if params.quantity>0}",
     		ctx
     	});
 
@@ -15946,14 +15936,28 @@ var app = (function () {
     	validate_slots("CartItemForm", slots, []);
     	let { params } = $$props;
 
+    	const onKeyPress = e => {
+    		if (e.charCode === 13) effectQuantity();
+    	};
+
+    	function zero() {
+    		$$invalidate(0, params.quantity = 0, params);
+    		effectQuantity();
+    	}
+
     	function increment() {
     		$$invalidate(0, params.quantity += 1, params);
     		effectQuantity();
     	}
 
     	function effectQuantity() {
-    		console.log(params.name, params.quantity);
+    		console.log(params.quantity);
+    		if (params.quantity == undefined) return;
+    		if (params.quantity == null) return;
+
+    		// console.log(params.name, quantity);
     		var myHeaders = new Headers();
+
     		myHeaders.append("Content-Type", "application/json");
     		var raw = "{\"" + params.name + "\":" + params.quantity + "}";
     		console.log(raw);
@@ -15966,7 +15970,8 @@ var app = (function () {
     			redirect: "follow"
     		};
 
-    		fetch("http://localhost:8080/api/cart", requestOptions).then(response => response.text()).then(result => console.log(result)).catch(error => console.log("error", error));
+    		fetch("http://localhost:8080/api/cart", requestOptions).then(response => response.text()).// .then(result => console.log(result))
+    		catch(error => console.log("error", error));
     	}
 
     	function decrement() {
@@ -15998,6 +16003,8 @@ var app = (function () {
     		alterItemQuantity,
     		removeItemFromCart,
     		params,
+    		onKeyPress,
+    		zero,
     		increment,
     		effectQuantity,
     		decrement
@@ -16011,7 +16018,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [params, increment, decrement, input_input_handler];
+    	return [params, onKeyPress, zero, increment, decrement, input_input_handler];
     }
 
     class CartItemForm extends SvelteComponentDev {

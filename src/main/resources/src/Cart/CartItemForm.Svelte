@@ -2,6 +2,15 @@
     import {alterItemQuantity, removeItemFromCart} from "../EmporiumAPI";
     export let params;
 
+    const onKeyPress = e => {
+        if (e.charCode === 13)
+            effectQuantity();
+    };
+
+    function zero(){
+        params.quantity = 0;
+        effectQuantity();
+    }
 
     function increment(){
         params.quantity+=1;
@@ -9,7 +18,12 @@
     }
 
     function effectQuantity(){
-        console.log(params.name, params.quantity);
+        console.log(params.quantity);
+        if(params.quantity == undefined)
+            return;
+        if(params.quantity == null)
+            return;
+        // console.log(params.name, quantity);
         var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
             var raw = '{\"'+params.name+'\":'+params.quantity+'}'
@@ -24,7 +38,7 @@
 
             fetch("http://localhost:8080/api/cart", requestOptions)
             .then(response => response.text())
-            .then(result => console.log(result))
+            // .then(result => console.log(result))
             .catch(error => console.log('error', error));
     }
 
@@ -42,7 +56,7 @@
 {#if params.quantity>0}
     <div class="item">
         <div class="buttons">
-            <span on:click={params.quantity=0,decrement()} class="delete-btn">x</span>
+            <span on:click={zero} class="delete-btn">x</span>
         </div>
 
         <div class="image">
@@ -57,7 +71,7 @@
             <button class="plus-btn" type="button" name="button" on:click={increment}>
                 +
             </button>
-            <input type="number" name="name" bind:value={params.quantity} />
+            <input type="number" name="name" bind:value={params.quantity} on:keypress={onKeyPress} />
             <button class="minus-btn" type="button" name="button" on:click={decrement}>
                 -
             </button>
@@ -140,6 +154,23 @@
     input:focus {
         outline: 0;
     }
+
+        /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+
+
+
+
+
 
 
     /* Media Queries */
