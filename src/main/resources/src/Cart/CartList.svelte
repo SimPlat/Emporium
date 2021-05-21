@@ -1,12 +1,32 @@
 <script>
+    import { onMount } from 'svelte';
     import CartItemForm from "./CartItemForm.svelte";
-    import { Item, CartItem} from "../EmporiumAPI";
+    let itemList = [];
+
+    onMount(async () => {
+		
+        var requestOptions = {
+        method: 'GET',
+        redirect: 'follow',
+        credentials: 'include'
+        };
+
+        let _itemList =[];
+        fetch("http://localhost:8080/api/cart", requestOptions)
+        .then(response => response.text())
+        .then(result=>{
+            let itemListJSON = JSON.parse(result);
+            for( let key in itemListJSON){
+                if(parseInt(itemListJSON[key]) >0)
+                    _itemList.push({"name":key, "displayName":key, "quantity":itemListJSON[key]});
+            }
+            itemList = _itemList;
+        })
+        .catch(error => console.log('error', error));;
+	});
 
 
 
-    let tItem = new CartItem(new Item("Μπανάνα Dole","./imgs/categories/banana.svg"), 20);
-    let tItem2 = new CartItem(new Item("Μπανάνα Dole","./imgs/categories/banana.svg"), 10);
-    let itemList = [tItem,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2,tItem2];
 </script>
 
 
@@ -14,6 +34,8 @@
 <div class="shopping-cart">
     {#each itemList as item}
         <CartItemForm bind:params={item}></CartItemForm>
+    {:else}
+        loading..
     {/each}
 </div>
 <style>
