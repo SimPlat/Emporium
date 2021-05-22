@@ -41,7 +41,7 @@
     {:else}
         Δεν βρέθηκαν προϊόντα
     {/each}
-    {#if itemList !=[]}
+    {#if itemList.length != 0}
         <div class="button-list"><button on:click={generateList}>Υπολογισμός Λίστας</button></div>
     {/if}
 </div>

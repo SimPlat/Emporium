@@ -16148,7 +16148,7 @@ var app = (function () {
     	return block;
     }
 
-    // (44:4) {#if itemList !=[]}
+    // (44:4) {#if itemList.length != 0}
     function create_if_block(ctx) {
     	let div;
     	let button;
@@ -16161,9 +16161,9 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Υπολογισμός Λίστας";
     			attr_dev(button, "class", "svelte-1o1ri2t");
-    			add_location(button, file$5, 44, 33, 1201);
+    			add_location(button, file$5, 44, 33, 1208);
     			attr_dev(div, "class", "button-list svelte-1o1ri2t");
-    			add_location(div, file$5, 44, 8, 1176);
+    			add_location(div, file$5, 44, 8, 1183);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -16186,7 +16186,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(44:4) {#if itemList !=[]}",
+    		source: "(44:4) {#if itemList.length != 0}",
     		ctx
     	});
 
@@ -16215,7 +16215,7 @@ var app = (function () {
     		each_1_else = create_else_block(ctx);
     	}
 
-    	let if_block = /*itemList*/ ctx[0] != [] && create_if_block(ctx);
+    	let if_block = /*itemList*/ ctx[0].length != 0 && create_if_block(ctx);
 
     	const block = {
     		c: function create() {
@@ -16292,7 +16292,7 @@ var app = (function () {
     				}
     			}
 
-    			if (/*itemList*/ ctx[0] != []) {
+    			if (/*itemList*/ ctx[0].length != 0) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
