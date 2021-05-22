@@ -4,11 +4,11 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@AllArgsConstructor @NoArgsConstructor(force=true)
+@NoArgsConstructor(force=true)
 @Entity @Table(name="category", schema="emporium")
 public class Category implements Serializable {
     @Id @Column(name="id")
-    private final @Getter @NonNull Integer id;
+    private final @NonNull Integer id;
 
     @Column(name="name")
     private final @Getter @NonNull String name;

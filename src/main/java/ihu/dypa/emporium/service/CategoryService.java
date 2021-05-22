@@ -2,7 +2,6 @@ package ihu.dypa.emporium.service;
 
 import ihu.dypa.emporium.model.Category;
 import ihu.dypa.emporium.repository.CategoryRepository;
-
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +17,11 @@ public class CategoryService {
     }
 
     public List<Category> getChildCategories(String parentName){
-        return categoryRepository.findAllChildren(parentName);
+        return categoryRepository.findCategoryByParent_Name(parentName);
     }
 
     public List<Category> getParentCategories(){
-        return categoryRepository.findAllParents();
+        return categoryRepository.findCategoryByParentNull();
     }
 
 }
