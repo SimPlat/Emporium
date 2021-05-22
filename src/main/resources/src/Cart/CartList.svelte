@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import CartItemForm from "./CartItemForm.svelte";
+    import {push, pop, replace} from 'svelte-spa-router'
     let itemList = [];
 
     onMount(async () => {
@@ -25,6 +26,9 @@
         .catch(error => console.log('error', error));;
 	});
 
+    function generateList() {
+        push("/list");
+    }
 
 
 </script>
@@ -35,11 +39,30 @@
     {#each itemList as item}
         <CartItemForm bind:params={item}></CartItemForm>
     {:else}
-        loading..
+        Δεν βρέθηκαν προϊόντα
     {/each}
+    {#if itemList !=[]}
+        <div class="button-list"><button on:click={generateList}>Υπολογισμός Λίστας</button></div>
+    {/if}
 </div>
 <style>
+    .button-list{
+        display: flex;
+        justify-content: center;
+    }
     
+    .button-list button{
+        margin: 40px 0px;
+        border-radius: 10px;
+        width: 200px;
+        height: 2.4em;
+        background: #c83647;
+        font-size: 1em;
+        font-weight: bold;
+        color: #32292f;
+        outline: none;
+        cursor: pointer;
+    }
     .shopping-cart {
         display: flex;
         flex-direction: column;

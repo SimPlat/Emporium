@@ -1,20 +1,49 @@
 <script>
-    import { Item, CartItem} from "../EmporiumAPI";
     import BuyListItem from "./BuyListItem.svelte";
+    import { onMount } from 'svelte';
+    let supermarkets = [];
+    onMount(async () => {
+		
+        var requestOptions = {
+        method: 'GET',
+        redirect: 'follow',
+        credentials: 'include'
+        };
 
+        let _itemList =[];
+        fetch("http://localhost:8080/api/cart/result", requestOptions)
+        .then(response => response.text())
+        .then(result=>{
+            let tes = JSON.parse(result);
+            let products = {};
+            for(let k in tes){
+                let quantity = tes[k];
+                let product = k.replace('[','').replace(']','').replaceAll(', ',',').split(',');
+                if(products[product[2]] == undefined)
+                    products[product[2]] = [];
+                products[product[2]].push({"quantity":quantity,"name":product[0],"displayName":product[1],"retailer":product[2],"price":product[3]});
+            }
+            let arrayProducts =[];
+            for(let k in products){
+                arrayProducts.push([products[k], k]);
+            }
+            supermarkets = arrayProducts;
+        })
+        .catch(error => console.log('error', error));;
+	});
+    // for(let k in tes){
+    //     let quantity = tes[k];
+    //     let product = k.replace('[','').replace(']','').replaceAll(', ',',').split(',');
+    //     console.log({"quantity":quantity,"name":product[0],"displayName":product[1],"retailer":product[2],"price":product[3]});
+    // }
 
-    let tItem = new CartItem(new Item("Μπανάνα Dole","./imgs/categories/banana.svg"), 20);
-    let tItem2 = new CartItem(new Item("Μπανάνα Dole","./imgs/categories/banana.svg"), 10);
-    let itemList = [tItem,tItem2];
-
-    let supermarkets = ["Masoytis", "Lidl"];
 </script>
 
 
 <div class="shopping-cart">
     {#each supermarkets as market}
-        <h1> {market}</h1>
-        {#each itemList as item}
+        <h1>{market[1]}</h1>
+        {#each market[0] as item}
             <BuyListItem bind:params={item}></BuyListItem>
         {/each}
     {/each}

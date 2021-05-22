@@ -4,11 +4,11 @@
 
 <div class="item">
     <div class="image">
-        <img src={params.item.name} alt="" />
+        <img src="imgs/Categories/{params.name}.svg" alt="" />
     </div>
 
     <div class="description">
-        <p>{params.item.displayName}</p>
+        <p>{params.displayName}</p>
     </div>
 
     <div class="quantity">
@@ -16,7 +16,7 @@
     </div>
 
     <div class="price">
-        <h2>1.30 $</h2>
+        <h2>{params.quantity * params.price} $</h2>
     </div>
 </div>
 
