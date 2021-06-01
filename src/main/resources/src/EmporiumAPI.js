@@ -135,9 +135,9 @@ export function getAvailableSupermarketsLocation(location) {
     let supported = getAvailableSupermarkets()
     /*get supported markets from backend * and compare the results */
     return [
-        "Lidl",
-        "Masoytis",
-        "Elon Musk"
+        "MyMarket",
+        "Masoutis",
+        "Sklavenitis"
     ]
 }
 
