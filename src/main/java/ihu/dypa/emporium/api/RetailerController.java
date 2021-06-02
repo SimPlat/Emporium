@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.lang.model.util.Elements;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor(onConstructor=@__({@Autowired}))
 public class RetailerController {
 
+    //@CrossOrigin(allowCredentials="true", origins="http://57632d1796e8.ngrok.io")
     @PostMapping(consumes="application/Json")
     public ResponseEntity<List<Retailer>> addRetailers(@RequestBody List<Retailer> newRetailersList, HttpServletRequest request){
         List<Retailer> activeRetailers = (List<Retailer>) request.getSession().getAttribute("ACTIVE_RETAILERS");
@@ -36,6 +39,7 @@ public class RetailerController {
         return new ResponseEntity<>(activeRetailers, HttpStatus.CREATED);
     }
 
+    //@CrossOrigin(allowCredentials="true", origins="https://6440062f4929.ngrok.io/")
     @GetMapping
     public ResponseEntity<List<Retailer>> getRetailers(HttpServletRequest request){
         List<Retailer> activeRetailers = (List<Retailer>) request.getSession().getAttribute("ACTIVE_RETAILERS");
