@@ -4,7 +4,7 @@
     import DivGrid from "../general/DivGrid.svelte";
     import Footer from "../general/Footer.svelte";
     import {push, pop, replace} from 'svelte-spa-router'
-    import {getProducts, addItemToCart } from '../EmporiumAPI.js';
+    import Swal from 'sweetalert2'
 
 
     export let params = {};
@@ -12,6 +12,18 @@
     /* later it could be converted as product list*/
     let productDisplayName = params.productName;
     let divGrindItems = [];
+
+
+    function popup(){
+        console.log("popup should fire");
+         Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Το προϊον προστέθηκε',
+            showConfirmButton: false,
+            timer: 800
+        });
+    }
 
     onMount(async () => {
 		
@@ -37,6 +49,7 @@
         myHeaders.append("Content-Type", "application/json");
         var raw = '{\"'+item.name+'\":1}'
         console.log(raw);
+        pop1();
         var requestOptions = {
         method: 'POST',
         headers: myHeaders,
