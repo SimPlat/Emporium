@@ -13557,7 +13557,7 @@ var app = (function () {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:8080/api/retailers", requestOptions)
+        fetch("https://localhost:8080/api/retailers", requestOptions)
             .then(response => response.text())
             .then(result => console.log(result + " sending completed succesfully"))
             .catch(error => console.log('Error on sending', error));
@@ -15123,7 +15123,7 @@ var app = (function () {
     			credentials: "include"
     		};
 
-    		fetch("http://localhost:8080/api/categories", requestOptions).then(response => response.text()).then(result => {
+    		fetch("https://localhosts:8080/api/categories", requestOptions).then(response => response.text()).then(result => {
     			$$invalidate(0, divGrindItems = JSON.parse(result));
     		}).catch(error => console.log("error", error));
 
@@ -15354,7 +15354,7 @@ var app = (function () {
     			credentials: "include"
     		};
 
-    		fetch("http://localhost:8080/api/categories/" + params.categoryName, requestOptions).then(response => response.text()).then(result => {
+    		fetch("https://localhost:8080/api/categories/" + params.categoryName, requestOptions).then(response => response.text()).then(result => {
     			$$invalidate(2, divGrindItems = JSON.parse(result));
     			$$invalidate(1, categoryDisplayName = divGrindItems[0].parent.displayName);
     		}).catch(error => console.log("error", error));
@@ -18718,7 +18718,7 @@ var app = (function () {
     			credentials: "include"
     		};
 
-    		fetch("http://localhost:8080/api/products/" + params.productName, requestOptions).then(response => response.text()).then(result => {
+    		fetch("https://localhost:8080/api/products/" + params.productName, requestOptions).then(response => response.text()).then(result => {
     			$$invalidate(2, divGrindItems = JSON.parse(result));
     			$$invalidate(1, productDisplayName = divGrindItems[0].category.displayName);
     		}).catch(error => console.log("error", error));
@@ -19281,9 +19281,9 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Υπολογισμός Λίστας";
     			attr_dev(button, "class", "svelte-1o1ri2t");
-    			add_location(button, file$5, 48, 33, 1415);
+    			add_location(button, file$5, 48, 33, 1416);
     			attr_dev(div, "class", "button-list svelte-1o1ri2t");
-    			add_location(div, file$5, 48, 8, 1390);
+    			add_location(div, file$5, 48, 8, 1391);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -19352,7 +19352,7 @@ var app = (function () {
     			t = space();
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "shopping-cart svelte-1o1ri2t");
-    			add_location(div, file$5, 41, 0, 1176);
+    			add_location(div, file$5, 41, 0, 1177);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -19474,7 +19474,7 @@ var app = (function () {
     			credentials: "include"
     		};
 
-    		fetch("http://localhost:8080/api/cart/result", requestOptions).then(response => response.text()).then(result => {
+    		fetch("https://localhost:8080/api/cart/result", requestOptions).then(response => response.text()).then(result => {
     			let tes = JSON.parse(result);
     			let products = [];
 

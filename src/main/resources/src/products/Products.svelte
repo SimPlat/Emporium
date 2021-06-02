@@ -33,7 +33,7 @@
         credentials: 'include'
         };
 
-        fetch("http://localhost:8080/api/products/"+params.productName, requestOptions)
+        fetch("https://localhost:8080/api/products/"+params.productName, requestOptions)
         .then(response => response.text())
         .then(result=>{
             divGrindItems = JSON.parse(result);
