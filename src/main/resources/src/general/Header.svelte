@@ -17,7 +17,7 @@
                     {name}
             </h1>
         </div>
-        <div class="space1"></div>
+        <div class="space1"><button class="backbutton" onclick="window.history.back();"></button></div>
         {#if displayCart==true}
         <div class="Cart" on:click={openCart}><img class="" src="imgs/icons/shopping-cart.svg" alt="Cart"></div>
         {:else}
@@ -26,6 +26,16 @@
     </div>
 </header>
 <style>
+
+    .backbutton{
+        background-color: inherit;
+        background-image: url("../imgs/icons/backIcon.svg");
+        background-repeat: no-repeat;
+        height: 100px;
+        width: 100px;
+        border: 0;
+    }
+
     header {
     width: 70vw;
     margin-left: 10vw;
@@ -68,4 +78,6 @@
         height: 40%;
         cursor:pointer;
     }
+
+
 </style>

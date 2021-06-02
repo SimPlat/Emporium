@@ -4,7 +4,7 @@
 
 <div class="item">
     <div class="image">
-        <img src="imgs/Categories/{params.name}.svg" alt="" />
+        <img src="imgs/Categories/{params.name.replace('%', '%25')}.svg" alt="" />
     </div>
 
     <div class="description">
@@ -16,7 +16,7 @@
     </div>
 
     <div class="price">
-        <h2>{params.quantity * params.price} $</h2>
+        <h2>{params.quantity * params.price} €</h2>
     </div>
 </div>
 

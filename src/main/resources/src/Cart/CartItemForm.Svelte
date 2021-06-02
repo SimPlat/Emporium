@@ -60,7 +60,7 @@
         </div>
 
         <div class="image">
-            <img src="imgs/Categories/{params.name}.svg"alt="" />
+            <img src="imgs/Categories/{params.name.replace('%', '%25')}.svg"alt="" />
         </div>
 
         <div class="description">
@@ -76,11 +76,19 @@
                 -
             </button>
         </div>
+
+        <div class="price">
+            <h2>{params.quantity * params.price} €</h2>
+        </div>
     </div>
 {/if}
 
 <style>
-
+    .price {
+        margin: auto 0;
+        margin-left: 50px;
+        margin-right: 60px;
+    }
     .item {
         width:40%;
         background-color: #fff;

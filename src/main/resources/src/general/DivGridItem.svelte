@@ -16,7 +16,7 @@
     <div class="product {classColor}">
         <div class="product-content">
             <div class="product-img">
-                <img src="imgs/Categories/{item.name}.svg" alt="category">
+                <img src="imgs/Categories/{item.name.replace('%', '%25')}.svg" alt="category">
             </div>
             <div class="product-btns">
                 <button on:click={onClick(item)} type="button" class="btn-cart"> {onClickName}</button>

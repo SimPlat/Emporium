@@ -1,5 +1,5 @@
 
-(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35730/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
 var app = (function () {
     'use strict';
 
@@ -514,12 +514,12 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			img = element("img");
-    			attr_dev(img, "class", " svelte-qv2i7r");
+    			attr_dev(img, "class", " svelte-6q67t8");
     			if (img.src !== (img_src_value = "imgs/icons/shopping-cart.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Cart");
-    			add_location(img, file$f, 23, 42, 617);
-    			attr_dev(div, "class", "Cart svelte-qv2i7r");
-    			add_location(div, file$f, 23, 8, 583);
+    			add_location(img, file$f, 23, 42, 686);
+    			attr_dev(div, "class", "Cart svelte-6q67t8");
+    			add_location(div, file$f, 23, 8, 652);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -561,12 +561,12 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			img = element("img");
-    			attr_dev(img, "class", " svelte-qv2i7r");
+    			attr_dev(img, "class", " svelte-6q67t8");
     			if (img.src !== (img_src_value = "imgs/icons/shopping-cart.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Cart");
-    			add_location(img, file$f, 21, 46, 490);
-    			attr_dev(div, "class", "Cart svelte-qv2i7r");
-    			add_location(div, file$f, 21, 8, 452);
+    			add_location(img, file$f, 21, 46, 559);
+    			attr_dev(div, "class", "Cart svelte-6q67t8");
+    			add_location(div, file$f, 21, 8, 521);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -604,6 +604,7 @@ var app = (function () {
     	let t0;
     	let t1;
     	let div1;
+    	let button;
     	let t2;
 
     	function select_block_type(ctx, dirty) {
@@ -623,17 +624,21 @@ var app = (function () {
     			t0 = text(/*name*/ ctx[0]);
     			t1 = space();
     			div1 = element("div");
+    			button = element("button");
     			t2 = space();
     			if_block.c();
-    			attr_dev(h1, "class", "svelte-qv2i7r");
+    			attr_dev(h1, "class", "svelte-6q67t8");
     			add_location(h1, file$f, 15, 12, 306);
-    			attr_dev(div0, "class", "title svelte-qv2i7r");
+    			attr_dev(div0, "class", "title svelte-6q67t8");
     			add_location(div0, file$f, 14, 8, 273);
-    			attr_dev(div1, "class", "space1 svelte-qv2i7r");
+    			attr_dev(button, "class", "backbutton svelte-6q67t8");
+    			attr_dev(button, "onclick", "window.history.back();");
+    			add_location(button, file$f, 19, 28, 403);
+    			attr_dev(div1, "class", "space1 svelte-6q67t8");
     			add_location(div1, file$f, 19, 8, 383);
-    			attr_dev(div2, "class", "grid-container svelte-qv2i7r");
+    			attr_dev(div2, "class", "grid-container svelte-6q67t8");
     			add_location(div2, file$f, 13, 4, 235);
-    			attr_dev(header, "class", "svelte-qv2i7r");
+    			attr_dev(header, "class", "svelte-6q67t8");
     			add_location(header, file$f, 12, 0, 221);
     		},
     		l: function claim(nodes) {
@@ -647,6 +652,7 @@ var app = (function () {
     			append_dev(h1, t0);
     			append_dev(div2, t1);
     			append_dev(div2, div1);
+    			append_dev(div1, button);
     			append_dev(div2, t2);
     			if_block.m(div2, null);
     		},
@@ -13525,23 +13531,23 @@ var app = (function () {
         return false;
     }
 
-    sendSelectedMarkets([]);
+    // sendSelectedMarkets([]);
     function sendSelectedMarkets(markets) {
         console.log("Sending Selected Markets " + markets);
-        // let raw = "[ ";
-        // for (let i = 0; i < markets.length; i++) {
-        //     raw += "{ \"retailerName\": \"" + markets[i] + "\" } ";
-        //     if (i < markets.length - 1) {
-        //         raw += ",";
-        //     }
-        // }
-        // raw += " ]";
-        // console.log(raw);
+        let raw = "[ ";
+        for (let i = 0; i < markets.length; i++) {
+            raw += "{ \"retailerName\": \"" + markets[i] + "\" } ";
+            if (i < markets.length - 1) {
+                raw += ",";
+            }
+        }
+        raw += " ]";
+        console.log(raw);
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
-        var raw = JSON.stringify([{"retailerName":"Sklavenitis"},{"retailerName":"Masoutis"}]);
+        // var raw = JSON.stringify([{"retailerName":"Sklavenitis"},{"retailerName":"Masoutis"}]);
 
         var requestOptions = {
             method: 'POST',
@@ -14332,7 +14338,7 @@ var app = (function () {
     			div3 = element("div");
     			span = element("span");
     			t3 = text(t3_value);
-    			if (img.src !== (img_src_value = "imgs/Categories/" + /*item*/ ctx[1].name + ".svg")) attr_dev(img, "src", img_src_value);
+    			if (img.src !== (img_src_value = "imgs/Categories/" + /*item*/ ctx[1].name.replace("%", "%25") + ".svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "category");
     			attr_dev(img, "class", "svelte-1itiynn");
     			add_location(img, file$8, 18, 16, 448);
@@ -14340,15 +14346,15 @@ var app = (function () {
     			add_location(div0, file$8, 17, 12, 405);
     			attr_dev(button, "type", "button");
     			attr_dev(button, "class", "btn-cart svelte-1itiynn");
-    			add_location(button, file$8, 21, 16, 584);
+    			add_location(button, file$8, 21, 16, 604);
     			attr_dev(div1, "class", "product-btns svelte-1itiynn");
-    			add_location(div1, file$8, 20, 12, 540);
+    			add_location(div1, file$8, 20, 12, 560);
     			attr_dev(div2, "class", "product-content svelte-1itiynn");
     			add_location(div2, file$8, 16, 8, 362);
     			attr_dev(span, "class", "product-name svelte-1itiynn");
-    			add_location(span, file$8, 26, 12, 759);
+    			add_location(span, file$8, 26, 12, 779);
     			attr_dev(div3, "class", "product-info svelte-1itiynn");
-    			add_location(div3, file$8, 25, 8, 719);
+    			add_location(div3, file$8, 25, 8, 739);
     			attr_dev(div4, "class", div4_class_value = "product " + /*classColor*/ ctx[0] + " svelte-1itiynn");
     			add_location(div4, file$8, 15, 4, 318);
     		},
@@ -14387,7 +14393,7 @@ var app = (function () {
     		p: function update(new_ctx, [dirty]) {
     			ctx = new_ctx;
 
-    			if (dirty & /*item*/ 2 && img.src !== (img_src_value = "imgs/Categories/" + /*item*/ ctx[1].name + ".svg")) {
+    			if (dirty & /*item*/ 2 && img.src !== (img_src_value = "imgs/Categories/" + /*item*/ ctx[1].name.replace("%", "%25") + ".svg")) {
     				attr_dev(img, "src", img_src_value);
     			}
 
@@ -15738,7 +15744,7 @@ var app = (function () {
 
     // (56:0) {#if params.quantity>0}
     function create_if_block$1(ctx) {
-    	let div4;
+    	let div5;
     	let div0;
     	let span;
     	let t1;
@@ -15757,12 +15763,18 @@ var app = (function () {
     	let input;
     	let t7;
     	let button1;
+    	let t9;
+    	let div4;
+    	let h2;
+    	let t10_value = /*params*/ ctx[0].quantity * /*params*/ ctx[0].price + "";
+    	let t10;
+    	let t11;
     	let mounted;
     	let dispose;
 
     	const block = {
     		c: function create() {
-    			div4 = element("div");
+    			div5 = element("div");
     			div0 = element("div");
     			span = element("span");
     			span.textContent = "x";
@@ -15782,54 +15794,67 @@ var app = (function () {
     			t7 = space();
     			button1 = element("button");
     			button1.textContent = "-";
-    			attr_dev(span, "class", "delete-btn svelte-11rjj2n");
+    			t9 = space();
+    			div4 = element("div");
+    			h2 = element("h2");
+    			t10 = text(t10_value);
+    			t11 = text(" €");
+    			attr_dev(span, "class", "delete-btn svelte-14zk07e");
     			add_location(span, file$6, 58, 12, 1589);
-    			attr_dev(div0, "class", "buttons svelte-11rjj2n");
+    			attr_dev(div0, "class", "buttons svelte-14zk07e");
     			add_location(div0, file$6, 57, 8, 1554);
-    			if (img.src !== (img_src_value = "imgs/Categories/" + /*params*/ ctx[0].name + ".svg")) attr_dev(img, "src", img_src_value);
+    			if (img.src !== (img_src_value = "imgs/Categories/" + /*params*/ ctx[0].name.replace("%", "%25") + ".svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
     			add_location(img, file$6, 62, 12, 1699);
-    			attr_dev(div1, "class", "image svelte-11rjj2n");
+    			attr_dev(div1, "class", "image svelte-14zk07e");
     			add_location(div1, file$6, 61, 8, 1666);
-    			add_location(p, file$6, 66, 12, 1819);
-    			attr_dev(div2, "class", "description svelte-11rjj2n");
-    			add_location(div2, file$6, 65, 8, 1780);
-    			attr_dev(button0, "class", "plus-btn svelte-11rjj2n");
+    			add_location(p, file$6, 66, 12, 1839);
+    			attr_dev(div2, "class", "description svelte-14zk07e");
+    			add_location(div2, file$6, 65, 8, 1800);
+    			attr_dev(button0, "class", "plus-btn svelte-14zk07e");
     			attr_dev(button0, "type", "button");
     			attr_dev(button0, "name", "button");
-    			add_location(button0, file$6, 70, 12, 1910);
+    			add_location(button0, file$6, 70, 12, 1930);
     			attr_dev(input, "type", "number");
     			attr_dev(input, "name", "name");
-    			attr_dev(input, "class", "svelte-11rjj2n");
-    			add_location(input, file$6, 73, 12, 2040);
-    			attr_dev(button1, "class", "minus-btn svelte-11rjj2n");
+    			attr_dev(input, "class", "svelte-14zk07e");
+    			add_location(input, file$6, 73, 12, 2060);
+    			attr_dev(button1, "class", "minus-btn svelte-14zk07e");
     			attr_dev(button1, "type", "button");
     			attr_dev(button1, "name", "button");
-    			add_location(button1, file$6, 74, 12, 2143);
-    			attr_dev(div3, "class", "quantity svelte-11rjj2n");
-    			add_location(div3, file$6, 69, 8, 1874);
-    			attr_dev(div4, "class", "item svelte-11rjj2n");
-    			add_location(div4, file$6, 56, 4, 1526);
+    			add_location(button1, file$6, 74, 12, 2163);
+    			attr_dev(div3, "class", "quantity svelte-14zk07e");
+    			add_location(div3, file$6, 69, 8, 1894);
+    			add_location(h2, file$6, 80, 12, 2341);
+    			attr_dev(div4, "class", "price svelte-14zk07e");
+    			add_location(div4, file$6, 79, 8, 2308);
+    			attr_dev(div5, "class", "item svelte-14zk07e");
+    			add_location(div5, file$6, 56, 4, 1526);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div4, anchor);
-    			append_dev(div4, div0);
+    			insert_dev(target, div5, anchor);
+    			append_dev(div5, div0);
     			append_dev(div0, span);
-    			append_dev(div4, t1);
-    			append_dev(div4, div1);
+    			append_dev(div5, t1);
+    			append_dev(div5, div1);
     			append_dev(div1, img);
-    			append_dev(div4, t2);
-    			append_dev(div4, div2);
+    			append_dev(div5, t2);
+    			append_dev(div5, div2);
     			append_dev(div2, p);
     			append_dev(p, t3);
-    			append_dev(div4, t4);
-    			append_dev(div4, div3);
+    			append_dev(div5, t4);
+    			append_dev(div5, div3);
     			append_dev(div3, button0);
     			append_dev(div3, t6);
     			append_dev(div3, input);
     			set_input_value(input, /*params*/ ctx[0].quantity);
     			append_dev(div3, t7);
     			append_dev(div3, button1);
+    			append_dev(div5, t9);
+    			append_dev(div5, div4);
+    			append_dev(div4, h2);
+    			append_dev(h2, t10);
+    			append_dev(h2, t11);
 
     			if (!mounted) {
     				dispose = [
@@ -15844,7 +15869,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*params*/ 1 && img.src !== (img_src_value = "imgs/Categories/" + /*params*/ ctx[0].name + ".svg")) {
+    			if (dirty & /*params*/ 1 && img.src !== (img_src_value = "imgs/Categories/" + /*params*/ ctx[0].name.replace("%", "%25") + ".svg")) {
     				attr_dev(img, "src", img_src_value);
     			}
 
@@ -15853,9 +15878,11 @@ var app = (function () {
     			if (dirty & /*params*/ 1 && to_number(input.value) !== /*params*/ ctx[0].quantity) {
     				set_input_value(input, /*params*/ ctx[0].quantity);
     			}
+
+    			if (dirty & /*params*/ 1 && t10_value !== (t10_value = /*params*/ ctx[0].quantity * /*params*/ ctx[0].price + "")) set_data_dev(t10, t10_value);
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div4);
+    			if (detaching) detach_dev(div5);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -16053,7 +16080,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (41:4) {:else}
+    // (45:4) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -16073,14 +16100,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(41:4) {:else}",
+    		source: "(45:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (39:4) {#each itemList as item}
+    // (43:4) {#each itemList as item}
     function create_each_block$1(ctx) {
     	let cartitemform;
     	let updating_params;
@@ -16141,14 +16168,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(39:4) {#each itemList as item}",
+    		source: "(43:4) {#each itemList as item}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (44:4) {#if itemList.length != 0}
+    // (48:4) {#if itemList.length != 0}
     function create_if_block(ctx) {
     	let div;
     	let button;
@@ -16161,9 +16188,9 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Υπολογισμός Λίστας";
     			attr_dev(button, "class", "svelte-1o1ri2t");
-    			add_location(button, file$5, 44, 33, 1208);
+    			add_location(button, file$5, 48, 33, 1415);
     			attr_dev(div, "class", "button-list svelte-1o1ri2t");
-    			add_location(div, file$5, 44, 8, 1183);
+    			add_location(div, file$5, 48, 8, 1390);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -16186,7 +16213,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(44:4) {#if itemList.length != 0}",
+    		source: "(48:4) {#if itemList.length != 0}",
     		ctx
     	});
 
@@ -16232,7 +16259,7 @@ var app = (function () {
     			t = space();
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "shopping-cart svelte-1o1ri2t");
-    			add_location(div, file$5, 37, 0, 969);
+    			add_location(div, file$5, 41, 0, 1176);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -16354,20 +16381,25 @@ var app = (function () {
     			credentials: "include"
     		};
 
-    		let _itemList = [];
+    		fetch("http://localhost:8080/api/cart/result", requestOptions).then(response => response.text()).then(result => {
+    			let tes = JSON.parse(result);
+    			let products = [];
 
-    		fetch("http://localhost:8080/api/cart", requestOptions).then(response => response.text()).then(result => {
-    			let itemListJSON = JSON.parse(result);
+    			for (let k in tes) {
+    				let quantity = tes[k];
+    				if (quantity == 0) continue;
+    				let product = k.replace("[", "").replace("]", "").replaceAll(", ", ",").split(",");
 
-    			for (let key in itemListJSON) {
-    				if (parseInt(itemListJSON[key]) > 0) _itemList.push({
-    					"name": key,
-    					"displayName": key,
-    					"quantity": itemListJSON[key]
+    				products.push({
+    					quantity,
+    					"name": product[0],
+    					"displayName": product[1],
+    					"retailer": product[2],
+    					"price": product[3]
     				});
     			}
 
-    			$$invalidate(0, itemList = _itemList);
+    			$$invalidate(0, itemList = products);
     		}).catch(error => console.log("error", error));
 
     		
@@ -16571,21 +16603,21 @@ var app = (function () {
     			div3 = element("div");
     			h21 = element("h2");
     			t5 = text(t5_value);
-    			t6 = text(" $");
-    			if (img.src !== (img_src_value = "imgs/Categories/" + /*params*/ ctx[0].name + ".svg")) attr_dev(img, "src", img_src_value);
+    			t6 = text(" €");
+    			if (img.src !== (img_src_value = "imgs/Categories/" + /*params*/ ctx[0].name.replace("%", "%25") + ".svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
     			add_location(img, file$3, 6, 8, 100);
     			attr_dev(div0, "class", "image svelte-1webbds");
     			add_location(div0, file$3, 5, 4, 71);
-    			add_location(p, file$3, 10, 8, 209);
+    			add_location(p, file$3, 10, 8, 229);
     			attr_dev(div1, "class", "description svelte-1webbds");
-    			add_location(div1, file$3, 9, 4, 174);
-    			add_location(h20, file$3, 14, 8, 288);
+    			add_location(div1, file$3, 9, 4, 194);
+    			add_location(h20, file$3, 14, 8, 308);
     			attr_dev(div2, "class", "quantity svelte-1webbds");
-    			add_location(div2, file$3, 13, 4, 256);
-    			add_location(h21, file$3, 18, 8, 363);
+    			add_location(div2, file$3, 13, 4, 276);
+    			add_location(h21, file$3, 18, 8, 383);
     			attr_dev(div3, "class", "price svelte-1webbds");
-    			add_location(div3, file$3, 17, 4, 334);
+    			add_location(div3, file$3, 17, 4, 354);
     			attr_dev(div4, "class", "item svelte-1webbds");
     			add_location(div4, file$3, 4, 0, 47);
     		},
@@ -16611,7 +16643,7 @@ var app = (function () {
     			append_dev(h21, t6);
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*params*/ 1 && img.src !== (img_src_value = "imgs/Categories/" + /*params*/ ctx[0].name + ".svg")) {
+    			if (dirty & /*params*/ 1 && img.src !== (img_src_value = "imgs/Categories/" + /*params*/ ctx[0].name.replace("%", "%25") + ".svg")) {
     				attr_dev(img, "src", img_src_value);
     			}
 
@@ -16712,7 +16744,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (46:8) {#each market[0] as item}
+    // (43:8) {#each market[0] as item}
     function create_each_block_1(ctx) {
     	let buylistitem;
     	let updating_params;
@@ -16769,14 +16801,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(46:8) {#each market[0] as item}",
+    		source: "(43:8) {#each market[0] as item}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (44:4) {#each supermarkets as market}
+    // (41:4) {#each supermarkets as market}
     function create_each_block(ctx) {
     	let h1;
     	let t0_value = /*market*/ ctx[2][1] + "";
@@ -16808,7 +16840,7 @@ var app = (function () {
 
     			each_1_anchor = empty();
     			attr_dev(h1, "class", "svelte-1928slo");
-    			add_location(h1, file$2, 44, 8, 1622);
+    			add_location(h1, file$2, 41, 8, 1399);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -16883,7 +16915,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(44:4) {#each supermarkets as market}",
+    		source: "(41:4) {#each supermarkets as market}",
     		ctx
     	});
 
@@ -16914,7 +16946,7 @@ var app = (function () {
     			}
 
     			attr_dev(div, "class", "shopping-cart svelte-1928slo");
-    			add_location(div, file$2, 42, 0, 1549);
+    			add_location(div, file$2, 39, 0, 1326);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -17010,6 +17042,7 @@ var app = (function () {
 
     			for (let k in tes) {
     				let quantity = tes[k];
+    				if (quantity == 0) continue;
     				let product = k.replace("[", "").replace("]", "").replaceAll(", ", ",").split(",");
     				if (products[product[2]] == undefined) products[product[2]] = [];
 

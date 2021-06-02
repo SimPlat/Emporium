@@ -20,23 +20,23 @@ export function getAvailableSupermarkets(markets) {
 
 }
 
-sendSelectedMarkets([]);
+// sendSelectedMarkets([]);
 export function sendSelectedMarkets(markets) {
     console.log("Sending Selected Markets " + markets);
-    // let raw = "[ ";
-    // for (let i = 0; i < markets.length; i++) {
-    //     raw += "{ \"retailerName\": \"" + markets[i] + "\" } ";
-    //     if (i < markets.length - 1) {
-    //         raw += ",";
-    //     }
-    // }
-    // raw += " ]";
-    // console.log(raw);
+    let raw = "[ ";
+    for (let i = 0; i < markets.length; i++) {
+        raw += "{ \"retailerName\": \"" + markets[i] + "\" } ";
+        if (i < markets.length - 1) {
+            raw += ",";
+        }
+    }
+    raw += " ]";
+    console.log(raw);
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify([{"retailerName":"Sklavenitis"},{"retailerName":"Masoutis"}]);
+    // var raw = JSON.stringify([{"retailerName":"Sklavenitis"},{"retailerName":"Masoutis"}]);
 
     var requestOptions = {
         method: 'POST',

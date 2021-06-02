@@ -18,6 +18,8 @@
             let products = {};
             for(let k in tes){
                 let quantity = tes[k];
+                if(quantity == 0)
+                    continue;
                 let product = k.replace('[','').replace(']','').replaceAll(', ',',').split(',');
                 if(products[product[2]] == undefined)
                     products[product[2]] = [];
@@ -30,13 +32,8 @@
             supermarkets = arrayProducts;
         })
         .catch(error => console.log('error', error));;
+        
 	});
-    // for(let k in tes){
-    //     let quantity = tes[k];
-    //     let product = k.replace('[','').replace(']','').replaceAll(', ',',').split(',');
-    //     console.log({"quantity":quantity,"name":product[0],"displayName":product[1],"retailer":product[2],"price":product[3]});
-    // }
-
 </script>
 
 

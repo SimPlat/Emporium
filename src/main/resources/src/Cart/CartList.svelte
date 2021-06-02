@@ -13,15 +13,19 @@
         };
 
         let _itemList =[];
-        fetch("http://localhost:8080/api/cart", requestOptions)
+        fetch("http://localhost:8080/api/cart/result", requestOptions)
         .then(response => response.text())
         .then(result=>{
-            let itemListJSON = JSON.parse(result);
-            for( let key in itemListJSON){
-                if(parseInt(itemListJSON[key]) >0)
-                    _itemList.push({"name":key, "displayName":key, "quantity":itemListJSON[key]});
+            let tes = JSON.parse(result);
+            let products = [];
+            for(let k in tes){
+                let quantity = tes[k];
+                if(quantity == 0)
+                    continue;
+                let product = k.replace('[','').replace(']','').replaceAll(', ',',').split(',');
+                products.push({"quantity":quantity,"name":product[0],"displayName":product[1],"retailer":product[2],"price":product[3]});
             }
-            itemList = _itemList;
+            itemList= products;
         })
         .catch(error => console.log('error', error));;
 	});
