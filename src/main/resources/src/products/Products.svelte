@@ -24,18 +24,8 @@
         fetch("http://localhost:8080/api/products/"+params.productName, requestOptions)
         .then(response => response.text())
         .then(result=>{
-            console.log(result);
-            let prod = JSON.parse(result);
-            let prodF = {};
-            for(let i in prod){
-                prodF[prod[i].name] = prod[i];
-            }
-            let prodT = [];
-            for(let i in prodF){
-                prodT.push(prodF[i]);
-            }
-            divGrindItems = prodT;
-            // productDisplayName = prod[0].parent.displayName;
+            divGrindItems = JSON.parse(result);
+            productDisplayName = divGrindItems[0].category.displayName;
         })
         .catch(error => console.log('error', error));;
 	});

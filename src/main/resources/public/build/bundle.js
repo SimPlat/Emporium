@@ -15614,22 +15614,9 @@ var app = (function () {
     		};
 
     		fetch("http://localhost:8080/api/products/" + params.productName, requestOptions).then(response => response.text()).then(result => {
-    			console.log(result);
-    			let prod = JSON.parse(result);
-    			let prodF = {};
-
-    			for (let i in prod) {
-    				prodF[prod[i].name] = prod[i];
-    			}
-
-    			let prodT = [];
-
-    			for (let i in prodF) {
-    				prodT.push(prodF[i]);
-    			}
-
-    			$$invalidate(2, divGrindItems = prodT);
-    		}).catch(error => console.log("error", error)); // productDisplayName = prod[0].parent.displayName;
+    			$$invalidate(2, divGrindItems = JSON.parse(result));
+    			$$invalidate(1, productDisplayName = divGrindItems[0].category.displayName);
+    		}).catch(error => console.log("error", error));
 
     		
     	});
