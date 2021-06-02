@@ -46,7 +46,7 @@ export function sendSelectedMarkets(markets) {
         redirect: 'follow'
     };
 
-    fetch("http://localhost:8080/api/retailers", requestOptions)
+    fetch("https://localhost:8080/api/retailers", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result + " sending completed succesfully"))
         .catch(error => console.log('Error on sending', error));
@@ -64,7 +64,7 @@ export let getCategories = function (items) {
         credentials: 'include'
     };
 
-    fetch("http://localhost:8080/api/categories", requestOptions)
+    fetch("https://localhost:8080/api/categories", requestOptions)
         .then(response => response.text())
         .then(result => {
             result = JSON.parse(result);

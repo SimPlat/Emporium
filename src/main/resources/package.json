@@ -21,6 +21,7 @@
     "jquerry": "0.0.1-security",
     "jquery": "^3.6.0",
     "sirv-cli": "^1.0.0",
-    "svelte-spa-router": "^3.1.0"
+    "svelte-spa-router": "^3.1.0",
+    "sweetalert2": "^11.0.16"
   }
 }
