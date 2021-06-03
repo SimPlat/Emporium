@@ -15,7 +15,6 @@
 
 
     function popup(){
-        console.log("popup should fire");
          Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -33,10 +32,22 @@
         credentials: 'include'
         };
 
-        fetch("https://localhost:8080/api/products/"+params.productName, requestOptions)
+        fetch("https://localhost:8443/api/products/"+params.productName, requestOptions)
         .then(response => response.text())
         .then(result=>{
-            divGrindItems = JSON.parse(result);
+            let rawdivItems = JSON.parse(result);
+            let _temp = {};
+            for(let i in rawdivItems){
+                _temp[rawdivItems[i].name] = rawdivItems[i];
+            }
+            let _temp2 = [];
+            
+            for(let i in _temp){
+                _temp2.push(_temp[i]);
+            }
+
+            divGrindItems = _temp2;
+            console.log(divGrindItems[0], divGrindItems[0].category)
             productDisplayName = divGrindItems[0].category.displayName;
         })
         .catch(error => console.log('error', error));;
@@ -48,8 +59,7 @@
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = '{\"'+item.name+'\":1}'
-        console.log(raw);
-        pop1();
+        popup();
         var requestOptions = {
         method: 'POST',
         headers: myHeaders,
@@ -58,7 +68,7 @@
         redirect: 'follow'
         };
 
-        fetch("http://localhost:8080/api/cart", requestOptions)
+        fetch("https://localhost:8443/api/cart", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));

@@ -36,7 +36,7 @@
             redirect: 'follow'
             };
 
-            fetch("http://localhost:8080/api/cart", requestOptions)
+            fetch("http://localhost:8443/api/cart", requestOptions)
             .then(response => response.text())
             // .then(result => console.log(result))
             .catch(error => console.log('error', error));

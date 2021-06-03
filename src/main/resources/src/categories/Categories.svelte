@@ -17,7 +17,7 @@
         credentials: 'include'
         };
 
-        fetch("https://localhosts:8080/api/categories", requestOptions)
+        fetch("https://localhost:8443/api/categories", requestOptions)
         .then(response => response.text())
         .then(result=>{
             divGrindItems = JSON.parse(result);

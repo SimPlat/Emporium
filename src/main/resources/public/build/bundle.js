@@ -1,5 +1,5 @@
 
-(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35730/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
 var app = (function () {
     'use strict';
 
@@ -13557,7 +13557,7 @@ var app = (function () {
             redirect: 'follow'
         };
 
-        fetch("https://localhost:8080/api/retailers", requestOptions)
+        fetch("https://localhost:8443/api/retailers", requestOptions)
             .then(response => response.text())
             .then(result => console.log(result + " sending completed succesfully"))
             .catch(error => console.log('Error on sending', error));
@@ -15123,7 +15123,7 @@ var app = (function () {
     			credentials: "include"
     		};
 
-    		fetch("https://localhosts:8080/api/categories", requestOptions).then(response => response.text()).then(result => {
+    		fetch("https://localhost:8443/api/categories", requestOptions).then(response => response.text()).then(result => {
     			$$invalidate(0, divGrindItems = JSON.parse(result));
     		}).catch(error => console.log("error", error));
 
@@ -15354,7 +15354,7 @@ var app = (function () {
     			credentials: "include"
     		};
 
-    		fetch("https://localhost:8080/api/categories/" + params.categoryName, requestOptions).then(response => response.text()).then(result => {
+    		fetch("https://localhost:8443/api/categories/" + params.categoryName, requestOptions).then(response => response.text()).then(result => {
     			$$invalidate(2, divGrindItems = JSON.parse(result));
     			$$invalidate(1, categoryDisplayName = divGrindItems[0].parent.displayName);
     		}).catch(error => console.log("error", error));
@@ -18700,8 +18700,6 @@ var app = (function () {
     	let divGrindItems = [];
 
     	function popup() {
-    		console.log("popup should fire");
-
     		sweetalert2_all.fire({
     			position: "top-end",
     			icon: "success",
@@ -18718,8 +18716,22 @@ var app = (function () {
     			credentials: "include"
     		};
 
-    		fetch("https://localhost:8080/api/products/" + params.productName, requestOptions).then(response => response.text()).then(result => {
-    			$$invalidate(2, divGrindItems = JSON.parse(result));
+    		fetch("https://localhost:8443/api/products/" + params.productName, requestOptions).then(response => response.text()).then(result => {
+    			let rawdivItems = JSON.parse(result);
+    			let _temp = {};
+
+    			for (let i in rawdivItems) {
+    				_temp[rawdivItems[i].name] = rawdivItems[i];
+    			}
+
+    			let _temp2 = [];
+
+    			for (let i in _temp) {
+    				_temp2.push(_temp[i]);
+    			}
+
+    			$$invalidate(2, divGrindItems = _temp2);
+    			console.log(divGrindItems[0], divGrindItems[0].category);
     			$$invalidate(1, productDisplayName = divGrindItems[0].category.displayName);
     		}).catch(error => console.log("error", error));
 
@@ -18731,8 +18743,7 @@ var app = (function () {
     		var myHeaders = new Headers();
     		myHeaders.append("Content-Type", "application/json");
     		var raw = "{\"" + item.name + "\":1}";
-    		console.log(raw);
-    		pop1();
+    		popup();
 
     		var requestOptions = {
     			method: "POST",
@@ -18742,7 +18753,7 @@ var app = (function () {
     			redirect: "follow"
     		};
 
-    		fetch("http://localhost:8080/api/cart", requestOptions).then(response => response.text()).then(result => console.log(result)).catch(error => console.log("error", error));
+    		fetch("https://localhost:8443/api/cart", requestOptions).then(response => response.text()).then(result => console.log(result)).catch(error => console.log("error", error));
     	};
 
     	const writable_props = ["params"];
@@ -19080,7 +19091,7 @@ var app = (function () {
     			redirect: "follow"
     		};
 
-    		fetch("http://localhost:8080/api/cart", requestOptions).then(response => response.text()).// .then(result => console.log(result))
+    		fetch("http://localhost:8443/api/cart", requestOptions).then(response => response.text()).// .then(result => console.log(result))
     		catch(error => console.log("error", error));
     	}
 
@@ -19474,7 +19485,7 @@ var app = (function () {
     			credentials: "include"
     		};
 
-    		fetch("https://localhost:8080/api/cart/result", requestOptions).then(response => response.text()).then(result => {
+    		fetch("https://localhost:8443/api/cart/result", requestOptions).then(response => response.text()).then(result => {
     			let tes = JSON.parse(result);
     			let products = [];
 
@@ -19933,7 +19944,7 @@ var app = (function () {
 
     			each_1_anchor = empty();
     			attr_dev(h1, "class", "svelte-1928slo");
-    			add_location(h1, file$2, 41, 8, 1399);
+    			add_location(h1, file$2, 41, 8, 1400);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -20039,7 +20050,7 @@ var app = (function () {
     			}
 
     			attr_dev(div, "class", "shopping-cart svelte-1928slo");
-    			add_location(div, file$2, 39, 0, 1326);
+    			add_location(div, file$2, 39, 0, 1327);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -20129,7 +20140,7 @@ var app = (function () {
     			credentials: "include"
     		};
 
-    		fetch("http://localhost:8080/api/cart/result", requestOptions).then(response => response.text()).then(result => {
+    		fetch("https://localhost:8443/api/cart/result", requestOptions).then(response => response.text()).then(result => {
     			let tes = JSON.parse(result);
     			let products = {};
 

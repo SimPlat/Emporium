@@ -13,7 +13,7 @@
         };
 
         let _itemList =[];
-        fetch("https://localhost:8080/api/cart/result", requestOptions)
+        fetch("https://localhost:8443/api/cart/result", requestOptions)
         .then(response => response.text())
         .then(result=>{
             let tes = JSON.parse(result);
